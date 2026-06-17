@@ -1,52 +1,22 @@
 import { useEffect, useMemo, useState } from "react"
 import type { FormEvent } from "react"
 import {
-  Users,
-  UserCheck,
-  CalendarOff,
-  TriangleAlert,
-  BriefcaseBusiness,
-  MapPin,
-  RefreshCw,
-  Filter,
-  CalendarDays,
-  FileSpreadsheet,
-  BarChart3,
-  PieChart as PieChartIcon,
-  Target,
-  TrendingDown,
-  TrendingUp,
-  ClipboardList,
+  Users, UserCheck, CalendarOff, TriangleAlert, BriefcaseBusiness,
+  MapPin, RefreshCw, Filter, CalendarDays, FileSpreadsheet,
+  BarChart3, PieChart as PieChartIcon, Target, TrendingDown,
+  TrendingUp, ClipboardList,
 } from "lucide-react"
 
 import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Legend,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
+  ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
 } from "recharts"
 
 import type { RespuestaMetricasDashboard } from "../types/metrica"
 import { mockMetricasDashboard } from "../data/mockData"
 
-const coloresEstadoDia = [
-  "#2563eb",
-  "#22c55e",
-  "#f59e0b",
-  "#71717a",
-]
-
-const mesesAbreviados = [
-  "ene", "feb", "mar", "abr", "may", "jun",
-  "jul", "ago", "sep", "oct", "nov", "dic",
-]
+const coloresEstadoDia = ["#2563eb", "#22c55e", "#f59e0b", "#71717a"]
+const mesesAbreviados = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 
 const obtenerFechaActualDelEquipo = () => {
   const fechaActual = new Date()
@@ -75,18 +45,10 @@ export default function PanelPrincipal() {
   const [lugarSeleccionado, setLugarSeleccionado] = useState("TODOS")
   const [cargoSeleccionado, setCargoSeleccionado] = useState("TODOS")
   const [turnoSeleccionado, setTurnoSeleccionado] = useState("TODOS")
-
   const [cargando, setCargando] = useState(false)
-  const [error, setError] = useState("")
 
-  const cargarMetricas = (
-    fecha = "",
-    lugar = "TODOS",
-    cargo = "TODOS",
-    turno = "TODOS"
-  ) => {
+  const cargarMetricas = (fecha = "", lugar = "TODOS", cargo = "TODOS", turno = "TODOS") => {
     setCargando(true)
-    setError("")
 
     setTimeout(() => {
       setMetricas(mockMetricasDashboard as RespuestaMetricasDashboard)
@@ -125,9 +87,7 @@ export default function PanelPrincipal() {
   const resumen = metricas?.resumen
   const resumenDotacion = metricas?.resumenDotacion
 
-  const hayRequerimientosImportados =
-    (resumenDotacion?.requeridos || 0) > 0 ||
-    (metricas?.detalleDeficit.length || 0) > 0
+  const hayRequerimientosImportados = (resumenDotacion?.requeridos || 0) > 0 || (metricas?.detalleDeficit.length || 0) > 0
 
   return (
     <div>
@@ -159,7 +119,6 @@ export default function PanelPrincipal() {
             {metricas?.carga?.archivoOriginal || "Sin carga disponible"}
           </p>
         </div>
-
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center gap-3 text-zinc-400 mb-2">
             <CalendarDays size={20} />
@@ -169,7 +128,6 @@ export default function PanelPrincipal() {
             {metricas?.carga?.hoja || "Sin hoja"}
           </p>
         </div>
-
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center gap-3 text-zinc-400 mb-2">
             <RefreshCw size={20} />
@@ -203,7 +161,6 @@ export default function PanelPrincipal() {
               ))}
             </select>
           </div>
-
           <div>
             <label className="block text-sm text-zinc-400 mb-2">Lugar</label>
             <select
@@ -217,7 +174,6 @@ export default function PanelPrincipal() {
               ))}
             </select>
           </div>
-
           <div>
             <label className="block text-sm text-zinc-400 mb-2">Cargo</label>
             <select
@@ -231,7 +187,6 @@ export default function PanelPrincipal() {
               ))}
             </select>
           </div>
-
           <div>
             <label className="block text-sm text-zinc-400 mb-2">Turno</label>
             <select
