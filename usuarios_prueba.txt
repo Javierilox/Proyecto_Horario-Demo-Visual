@@ -1,0 +1,7 @@
+Correo: admin@shiftflow.cl
+Contraseña: 123456
+Rol: ADMIN
+==================================
+Correo: trabajador@shiftflow.cl
+Contraseña: 123456
+Rol: TRABAJADOR
