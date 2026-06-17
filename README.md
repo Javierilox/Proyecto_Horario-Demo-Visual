@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# 🚌 ShiftFlow — Gestión Inteligente de Horarios Operativos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <img src="https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-Estricto-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TailwindCSS-Din%C3%A1mico-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/Vite-Compilado-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+  <img src="https://img.shields.io/badge/Vercel-Desplegado-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+</div>
 
-Currently, two official plugins are available:
+<br />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> 📊 **Plataforma de alto rendimiento** diseñada para la planificación, análisis de cobertura y distribución de turnos mensuales para personal operativo, conductores y administrativos en terminales de transporte masivo.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Índice
+1. [🚀 Sobre el Proyecto](#-sobre-el-proyecto)
+2. [🌐 Demo en Vivo](#-demo-en-vivo)
+3. [📸 Galería del Sistema (Paso a Paso)](#-galer%C3%ADa-del-sistema-paso-a-paso)
+4. [🎨 Personalización Dinámica (Control Context API)](#-personalizaci%C3%B3n-din%C3%A1mica-control-context-api)
+5. [🛡️ Protección de Autoría (Anti-Tamper DOM)](#%EF%B8%8F-protecci%C3%B3n-de-autor%C3%ADa-anti-tamper-dom)
+6. [✨ Funcionalidades de la Demo](#-funcionalidades-de-la-demo)
+7. [🛠️ Stack Tecnológico](#%EF%B8%8F-stack-tecnol%C3%B3gico)
+8. [⚙️ Instalación y Build Local](#%EF%B8%8F-instalaci%C3%B3n-y-build-local)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Sobre el Proyecto
+**ShiftFlow** resuelve de forma visual y analítica el conflicto logístico de la asignación de jornadas laborales masivas. El sistema contrasta las planificaciones mensuales cargadas mediante matrices complejas frente a las necesidades operacionales reales del día a día, arrojando alertas tempranas de déficit de personal por cargos, turnos específicos o locaciones físicas.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🌐 Demo en Vivo
+El proyecto se encuentra compilado de forma optimizada y desplegado en servidores edge de Vercel:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🔗 **[Navegar por la Demo Interactiva](https://horario-demo-visual.vercel.app/)**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Galería del Sistema (Paso a Paso)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🔐 1. Control de Acceso Unificado
+Pantalla de autenticación diseñada con layouts adaptativos. Cuenta con un bypass inteligente que permite evaluar los flujos completos de los distintos tipos de usuarios sin requerir configuración de bases de datos externas.
+
+---
+
+### 📊 2. Dashboard de Control Central (Vista Administrador)
+Panel analítico principal que transforma arrays de datos planos en información accionable a través de componentes gráficos interactivos de alto volumen.
+
+---
+
+### 🗓️ 3. Sábana de Horarios Operativos
+Matriz completa de distribución mensual día por día. Muestra de forma colorizada y categorizada los estados de cada colaborador (Turnos AM, PM, Nocturnos, Libres, Licencias Médicas o Vacaciones).
+
+---
+
+### 👤 4. Panel Autónomo del Colaborador (Vista Trabajador)
+Interfaz simplificada donde el trabajador puede consultar de manera exclusiva sus turnos, ver resúmenes estadísticos de sus jornadas y descargar sus reportes generados en caliente de forma nativa.
+
+---
+
+## 🎨 Personalización Dinámica (Control Context API)
+La plataforma integra un **Configurador de Entorno en tiempo real** (accesible mediante el widget flotante inferior) que demuestra el control avanzado de estados globales y reactividad en la UI:
+
+* 📝 **Inyección de Identidad:** Permite renombrar toda la suite corporativa de forma dinámica.
+* 📦 **Encapsulamiento de Logos:** Reemplazo de componentes SVG (`Lucide`) en caliente a lo largo de toda la estructura de navegación.
+* 🌈 **Tematización mediante Variables CSS:** Modificación instantánea de paletas cromáticas completas (Tailwind Override), tipografías del sistema y variantes oscuras avanzadas (Slate, Zinc, Negro Absoluto OLED) con persistencia en `LocalStorage`.
+
+---
+
+## 🛡️ Protección de Autoría (Anti-Tamper DOM)
+Para garantizar la integridad y auditoría del portafolio, el núcleo inyecta un módulo de seguridad invisible:
+* 🧬 **Ofuscación Crítica:** Los metadatos de autoría se procesan cifrados en memoria para evitar rastreos directos en texto plano.
+* 🔄 **MutationObserver del DOM:** Si un agente externo intenta remover o alterar la firma visual mediante herramientas de desarrollo (`F12`), el sistema detecta la mutación del árbol HTML de manera reactiva y reconstruye el nodo de protección en milisegundos.
+
+---
+
+## ✨ Funcionalidades de la Demo
+* **[SI] Búsqueda indexada:** Filtro multifactorial reactivo en tablas por RUT, Nombre o ID.
+* **[SI] Exportación Binaria:** Generación en el cliente de hojas de cálculo **Excel (.xlsx)** y documentos **PDF** estructurados usando procesamiento asíncrono.
+* **[NO] Mutación en Servidor:** Las acciones simulan respuestas exitosas del backend (0ms de latencia), pero no alteran ficheros raíz.
+
+---
+
+## 🛠️ Stack Tecnológico
+* **Frontend:** React 18, TypeScript (Strict Mode), Vite.
+* **Estilos y Gráficos:** Tailwind CSS, Recharts, Lucide React.
+* **Motores de Reportes:** SheetJS (XLSX), jsPDF, jsPDF-AutoTable.
+* **Enrutamiento:** React Router DOM.
+
+---
+
+## ⚙️ Instalación y Build Local
+
+1. Instalar dependencias mediante el gestor de paquetes optimizado:
+   ```bash
+   pnpm install
