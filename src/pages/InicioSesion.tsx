@@ -80,7 +80,7 @@ export default function InicioSesion() {
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight">
-            ShiftFlow
+            JaviWork Scheduler
           </h1>
 
           <p className="text-zinc-400 mt-2">
@@ -189,7 +189,7 @@ export default function InicioSesion() {
         </section>
 
         <p className="text-center text-xs text-zinc-600 mt-6">
-          ShiftFlow · Control de horarios operativos
+          JaviWork Scheduler · Control de horarios operativos
         </p>
       </main>
     </div>
