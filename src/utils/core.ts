@@ -20,8 +20,8 @@ export const initCore = () => {
       el.style.position = "fixed";
       el.style.bottom = "8px";
       el.style.left = "8px"; // Abajo a la izquierda para no chocar con el botón del Demo
-      el.style.fontSize = "10px";
-      el.style.color = "rgba(255, 255, 255, 0.15)"; // 15% de opacidad
+      el.style.fontSize = "15px";
+      el.style.color = "rgba(255, 255, 255, 0.56)"; // 15% de opacidad
       el.style.pointerEvents = "none"; // Para que no interfiera con los clics
       el.style.zIndex = "9999";
       el.style.fontFamily = "monospace";
