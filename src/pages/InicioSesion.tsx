@@ -9,11 +9,15 @@ import {
   LogIn,
   Mail,
   ShieldCheck,
-  Info // Añadimos este icono para el aviso del portafolio
+  Info,
 } from "lucide-react"
+
+// Importamos el hook del contexto global de la demo
+import { useDemo } from "../context/DemoContext"
 
 export default function InicioSesion() {
   const navigate = useNavigate()
+  const { nombreApp } = useDemo() // Extraemos el nombre dinámico de la app
 
   const [correo, setCorreo] = useState("")
   const [password, setPassword] = useState("")
@@ -32,9 +36,9 @@ export default function InicioSesion() {
     setCargando(true)
     setError("")
 
-    // SIMULACIÓN DE BACKEND PARA EL PORTAFOLIO
+    // SIMULACIÓN DE LOGUEO PARA EL PORTAFOLIO
     setTimeout(() => {
-      let usuarioSimulado;
+      let usuarioSimulado
 
       // Regla: Si el correo contiene "admin", entra como Administrador
       if (correo.toLowerCase().includes("admin")) {
@@ -43,8 +47,8 @@ export default function InicioSesion() {
           nombre: "Administrador Demo",
           correo: correo,
           rol: "ADMIN",
-          rut: "11.111.111-1"
-        };
+          rut: "11.111.111-1",
+        }
       } else {
         // Cualquier otro correo entra como Trabajador
         usuarioSimulado = {
@@ -52,23 +56,23 @@ export default function InicioSesion() {
           nombre: "Trabajador Demo",
           correo: correo,
           rol: "TRABAJADOR",
-          rut: "22.222.222-2"
-        };
+          rut: "22.222.222-2",
+        }
       }
 
-      // Guardamos la sesión falsa
+      // Guardamos la sesión simulada en el almacenamiento local
       localStorage.setItem("token", "token-demo-portafolio")
       localStorage.setItem("usuario", JSON.stringify(usuarioSimulado))
 
-      // Redirigimos según el rol
+      // Redirigimos según corresponda
       if (usuarioSimulado.rol === "TRABAJADOR") {
         navigate("/mi-horario", { replace: true })
       } else {
         navigate("/panel", { replace: true })
       }
-      
+
       setCargando(false)
-    }, 1200) // 1.2 segundos de delay para mostrar la animación de carga
+    }, 1200) // Animación fluida de carga
   }
 
   return (
@@ -79,8 +83,9 @@ export default function InicioSesion() {
             <ShieldCheck className="text-blue-400" size={32} />
           </div>
 
+          {/* El título principal ahora es dinámico */}
           <h1 className="text-4xl font-bold tracking-tight">
-            JaviWork Scheduler
+            {nombreApp}
           </h1>
 
           <p className="text-zinc-400 mt-2">
@@ -89,12 +94,11 @@ export default function InicioSesion() {
         </div>
 
         <section className="bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl shadow-black/30 p-6 sm:p-8">
-          
-          {/* AVISO PARA RECLUTADORES (Solo visible en la Demo) */}
+          {/* Bloque informativo para el reclutador */}
           <div className="mb-6 bg-blue-500/10 border border-blue-500/30 p-4 rounded-2xl flex gap-3 text-sm text-blue-200">
             <Info className="text-blue-400 shrink-0 mt-0.5" size={20} />
             <p>
-              <strong>Modo Portafolio:</strong> Usa <span className="text-blue-400 font-semibold">admin@demo.com</span> para ver la vista de Administración, o <span className="text-blue-400 font-semibold">trabajador@demo.com</span> para la vista de Empleado. (La contraseña puede ser cualquiera).
+              <strong>Modo Portafolio:</strong> Usa <span className="text-blue-400 font-semibold">admin@demo.com</span> para ver la vista de Administración, o <span className="text-blue-400 font-semibold">trabajador@demo.com</span> para la del Empleado. (Cualquier contraseña funciona).
             </p>
           </div>
 
@@ -129,7 +133,7 @@ export default function InicioSesion() {
                   onChange={(evento) => setCorreo(evento.target.value)}
                   placeholder="admin@demo.com"
                   autoComplete="email"
-                  className="w-full bg-zinc-950 border border-zinc-800 text-white pl-12 pr-4 py-3.5 rounded-2xl outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-white pl-12 pr-4 py-3.5 rounded-2xl outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-sm"
                 />
               </div>
             </div>
@@ -151,7 +155,7 @@ export default function InicioSesion() {
                   onChange={(evento) => setPassword(evento.target.value)}
                   placeholder="••••••••"
                   autoComplete="current-password"
-                  className="w-full bg-zinc-950 border border-zinc-800 text-white pl-12 pr-12 py-3.5 rounded-2xl outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                  className="w-full bg-zinc-950 border border-zinc-800 text-white pl-12 pr-12 py-3.5 rounded-2xl outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 text-sm"
                 />
 
                 <button
@@ -188,8 +192,9 @@ export default function InicioSesion() {
           </form>
         </section>
 
+        {/* El pie de página también se acopla al nombre configurado */}
         <p className="text-center text-xs text-zinc-600 mt-6">
-          JaviWork Scheduler · Control de horarios operativos
+          {nombreApp} · Control de horarios operativos
         </p>
       </main>
     </div>
