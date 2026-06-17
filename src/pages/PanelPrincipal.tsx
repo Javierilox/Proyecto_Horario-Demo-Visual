@@ -34,7 +34,7 @@ import {
 } from "recharts"
 
 import type { RespuestaMetricasDashboard } from "../types/metrica"
-import { mockMetricasDashboard } from "../data/mockData" // <- IMPORTAMOS LOS DATOS FALSOS
+import { mockMetricasDashboard } from "../data/mockData"
 
 const coloresEstadoDia = [
   "#2563eb",
@@ -79,7 +79,6 @@ export default function PanelPrincipal() {
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState("")
 
-  // SIMULACIÓN DE LLAMADA AL BACKEND
   const cargarMetricas = (
     fecha = "",
     lugar = "TODOS",
@@ -90,17 +89,13 @@ export default function PanelPrincipal() {
     setError("")
 
     setTimeout(() => {
-      // Inyectamos los datos del portafolio en lugar de la respuesta de axios
       setMetricas(mockMetricasDashboard as RespuestaMetricasDashboard)
-      
-      // Actualizamos los selectores visuales
       setFechaSeleccionada(fecha || mockMetricasDashboard.filtros.fechaSeleccionada)
       setLugarSeleccionado(lugar)
       setCargoSeleccionado(cargo)
       setTurnoSeleccionado(turno)
-      
       setCargando(false)
-    }, 800) // Animación fluida de 800ms
+    }, 800)
   }
 
   useEffect(() => {
@@ -136,15 +131,11 @@ export default function PanelPrincipal() {
 
   return (
     <div>
-      {/* Encabezado principal */}
       <div className="flex flex-col gap-5 mb-8 xl:flex-row xl:items-center xl:justify-between">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2">
-            Dashboard operativo
-          </h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Dashboard operativo</h1>
           <p className="text-sm sm:text-base text-zinc-400 max-w-4xl">
-            Analiza la dotación diaria de trabajadores por fecha, lugar,
-            turno, cargo y cobertura requerida.
+            Analiza la dotación diaria de trabajadores por fecha, lugar, turno, cargo y cobertura requerida.
           </p>
         </div>
 
@@ -158,7 +149,6 @@ export default function PanelPrincipal() {
         </button>
       </div>
 
-      {/* Información de la carga activa */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-6">
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center gap-3 text-zinc-400 mb-2">
@@ -191,17 +181,12 @@ export default function PanelPrincipal() {
         </div>
       </div>
 
-      {/* Filtros */}
       <form onSubmit={aplicarFiltros} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 sm:p-6 mb-6">
         <div className="flex items-center gap-3 mb-5">
-          <div className="bg-blue-600/10 text-blue-400 p-3 rounded-xl">
-            <Filter size={20} />
-          </div>
+          <div className="bg-blue-600/10 text-blue-400 p-3 rounded-xl"><Filter size={20} /></div>
           <div>
             <h2 className="text-xl font-semibold">Filtros del dashboard</h2>
-            <p className="text-sm text-zinc-400">
-              La fecha se ajusta automáticamente al día actual del equipo.
-            </p>
+            <p className="text-sm text-zinc-400">La fecha se ajusta automáticamente al día actual del equipo.</p>
           </div>
         </div>
 
@@ -269,7 +254,6 @@ export default function PanelPrincipal() {
             >
               {cargando ? "Cargando..." : "Aplicar filtros"}
             </button>
-
             <button
               type="button"
               onClick={volverAHoy}
@@ -282,7 +266,6 @@ export default function PanelPrincipal() {
         </div>
       </form>
 
-      {/* Resumen general del día */}
       <div className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4 sm:gap-5 mb-6 transition-opacity duration-500 ${cargando ? "opacity-40" : "opacity-100"}`}>
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center justify-between gap-4">
@@ -293,7 +276,6 @@ export default function PanelPrincipal() {
             <div className="bg-blue-600/10 text-blue-400 p-4 rounded-2xl"><Users size={28} /></div>
           </div>
         </div>
-
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center justify-between gap-4">
             <div>
@@ -303,7 +285,6 @@ export default function PanelPrincipal() {
             <div className="bg-emerald-600/10 text-emerald-400 p-4 rounded-2xl"><UserCheck size={28} /></div>
           </div>
         </div>
-
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center justify-between gap-4">
             <div>
@@ -313,17 +294,15 @@ export default function PanelPrincipal() {
             <div className="bg-green-600/10 text-green-400 p-4 rounded-2xl"><CalendarOff size={28} /></div>
           </div>
         </div>
-
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm text-zinc-400 mb-2">Licencia / Vac</</p>
+              <p className="text-sm text-zinc-400 mb-2">Licencia / Vac</p>
               <p className="text-4xl font-bold">{resumen?.ausente ?? 0}</p>
             </div>
             <div className="bg-amber-600/10 text-amber-400 p-4 rounded-2xl"><BriefcaseBusiness size={28} /></div>
           </div>
         </div>
-
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:col-span-2 xl:col-span-1">
           <div className="flex items-center justify-between gap-4">
             <div>
@@ -335,7 +314,6 @@ export default function PanelPrincipal() {
         </div>
       </div>
 
-      {/* Gráficos generales */}
       <div className={`grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 mb-6 transition-opacity duration-500 ${cargando ? "opacity-40" : "opacity-100"}`}>
         <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6">
           <div className="flex items-center gap-3 mb-5">
@@ -386,7 +364,6 @@ export default function PanelPrincipal() {
         </section>
       </div>
 
-      {/* Gráficos por lugar y cargo */}
       <div className={`grid grid-cols-1 xl:grid-cols-2 gap-5 sm:gap-6 mb-10 transition-opacity duration-500 ${cargando ? "opacity-40" : "opacity-100"}`}>
         <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6">
           <div className="flex items-center gap-3 mb-5">
@@ -437,7 +414,6 @@ export default function PanelPrincipal() {
         </section>
       </div>
 
-      {/* Sección de déficit */}
       <div className={`mb-6 transition-opacity duration-500 ${cargando ? "opacity-40" : "opacity-100"}`}>
         <h2 className="text-2xl sm:text-3xl font-bold mb-2">Análisis de déficit de dotación</h2>
         <p className="text-sm sm:text-base text-zinc-400">Comparación entre la hoja NECESIDAD y los trabajadores programados.</p>
@@ -459,7 +435,6 @@ export default function PanelPrincipal() {
                 <div className="bg-indigo-600/10 text-indigo-400 p-4 rounded-2xl"><Target size={28} /></div>
               </div>
             </div>
-
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -469,7 +444,6 @@ export default function PanelPrincipal() {
                 <div className="bg-blue-600/10 text-blue-400 p-4 rounded-2xl"><UserCheck size={28} /></div>
               </div>
             </div>
-
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -479,7 +453,6 @@ export default function PanelPrincipal() {
                 <div className="bg-red-600/10 text-red-400 p-4 rounded-2xl"><TrendingDown size={28} /></div>
               </div>
             </div>
-
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -489,7 +462,6 @@ export default function PanelPrincipal() {
                 <div className="bg-emerald-600/10 text-emerald-400 p-4 rounded-2xl"><TrendingUp size={28} /></div>
               </div>
             </div>
-
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:col-span-2 xl:col-span-1">
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -583,7 +555,6 @@ export default function PanelPrincipal() {
                 <p className="text-sm text-zinc-400">Comparación exacta por lugar, cargo y turno.</p>
               </div>
             </div>
-
             {metricas?.detalleDeficit.length ? (
               <div className="overflow-auto">
                 <table className="w-full min-w-[950px] border-collapse text-sm">
