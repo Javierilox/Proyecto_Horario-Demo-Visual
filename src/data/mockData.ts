@@ -13,10 +13,10 @@ export const mockUsuarioTrabajador = {
 }
 
 export const mockTrabajadores = [
-  { id: 1, rut: "12.345.678-9", nombre: "Juan Pérez", correo: "jperez@demo.com", cargo: "Conductor", lugar: "Terminal Condell", estado: "Activo" },
+  { id: 1, rut: "12.345.678-9", nombre: "Juan Pérez", correo: "jperez@demo.com", cargo: "Conductor", lugar: "Condell", estado: "Activo" },
   { id: 2, rut: "98.765.432-1", nombre: "María González", correo: "mgonzalez@demo.com", cargo: "Administrativo", lugar: "Oficina Central", estado: "Activo" },
-  { id: 3, rut: "15.555.555-5", nombre: "Carlos Soto", correo: "csoto@demo.com", cargo: "Mecánico", lugar: "Terminal Retiro", estado: "Licencia" },
-  { id: 4, rut: "19.999.999-9", nombre: "Ana Silva", correo: "asilva@demo.com", cargo: "Conductor", lugar: "Terminal Condell", estado: "Activo" },
+  { id: 3, rut: "15.555.555-5", nombre: "Carlos Soto", correo: "csoto@demo.com", cargo: "Mecánico", lugar: "Santiago Centro", estado: "Licencia" },
+  { id: 4, rut: "19.999.999-9", nombre: "Ana Silva", correo: "asilva@demo.com", cargo: "Conductor", lugar: "Santiago Centro", estado: "Activo" },
 ]
 
 export const mockSolicitudes = [
@@ -55,8 +55,8 @@ export const mockSolicitudes = [
 export const mockMetricasDashboard = {
   filtros: {
     fechasDisponibles: ["17-jun", "18-jun", "19-jun", "20-jun"],
-    lugaresDisponibles: ["Terminal Condell", "Terminal Retiro", "Oficina Central"],
-    cargosDisponibles: ["Conductor", "Administrativo", "Mecánico", "Jefe de Patio"],
+    lugaresDisponibles: ["Condell", "Santiago Centro", "Oficina Central"],
+    cargosDisponibles: ["Conductor", "Administrativo", "Mecánico", "Jefe de Area Operaciones"],
     turnosDisponibles: [
       { codigo: "M", nombre: "AM" },
       { codigo: "T", nombre: "PM" },
@@ -85,15 +85,15 @@ export const mockMetricasDashboard = {
     { turno: "Noche", cantidad: 33 }
   ],
   graficoPorLugar: [
-    { lugar: "Terminal Condell", am: 45, pm: 40, noche: 20 },
-    { lugar: "Terminal Retiro", am: 30, pm: 30, noche: 10 },
+    { lugar: "Condell", am: 45, pm: 40, noche: 20 },
+    { lugar: "Santiago Centro", am: 30, pm: 30, noche: 10 },
     { lugar: "Oficina Central", am: 10, pm: 10, noche: 3 }
   ],
   graficoPorCargo: [
     { cargo: "Conductor", trabajando: 160, libre: 25, ausente: 10 },
     { cargo: "Mecánico", trabajando: 20, libre: 5, ausente: 2 },
     { cargo: "Administrativo", trabajando: 12, libre: 3, ausente: 0 },
-    { cargo: "Jefe de Patio", trabajando: 6, libre: 2, ausente: 0 }
+    { cargo: "Jefe de Area Operaciones", trabajando: 6, libre: 2, ausente: 0 }
   ],
   graficoDeficitPorTurno: [
     { nombreTurno: "AM", requeridos: 88, programados: 85, deficit: 3 },
@@ -101,20 +101,20 @@ export const mockMetricasDashboard = {
     { nombreTurno: "Noche", requeridos: 33, programados: 33, deficit: 0 }
   ],
   graficoDeficitPorLugar: [
-    { lugar: "Terminal Condell", requeridos: 110, programados: 105, deficit: 5 },
-    { lugar: "Terminal Retiro", requeridos: 72, programados: 70, deficit: 2 },
+    { lugar: "Condell", requeridos: 110, programados: 105, deficit: 5 },
+    { lugar: "Santiago Centro", requeridos: 72, programados: 70, deficit: 2 },
     { lugar: "Oficina Central", requeridos: 23, programados: 23, deficit: 0 }
   ],
   graficoDeficitPorCargo: [
     { cargo: "Conductor", requeridos: 167, programados: 160, deficit: 7 },
     { cargo: "Mecánico", requeridos: 20, programados: 20, deficit: 0 },
     { cargo: "Administrativo", requeridos: 12, programados: 12, deficit: 0 },
-    { cargo: "Jefe de Patio", requeridos: 6, programados: 6, deficit: 0 }
+    { cargo: "Jefe de Area Operaciones", requeridos: 6, programados: 6, deficit: 0 }
   ],
   detalleDeficit: [
-    { idRequerimiento: 1, lugar: "Terminal Condell", cargo: "Conductor", nombreTurno: "AM", requeridos: 48, programados: 45, deficit: 3, superavit: 0, estado: "DEFICIT" },
-    { idRequerimiento: 2, lugar: "Terminal Condell", cargo: "Conductor", nombreTurno: "PM", requeridos: 42, programados: 40, deficit: 2, superavit: 0, estado: "DEFICIT" },
-    { idRequerimiento: 3, lugar: "Terminal Retiro", cargo: "Conductor", nombreTurno: "PM", requeridos: 32, programados: 30, deficit: 2, superavit: 0, estado: "DEFICIT" },
+    { idRequerimiento: 1, lugar: "Condell", cargo: "Conductor", nombreTurno: "AM", requeridos: 48, programados: 45, deficit: 3, superavit: 0, estado: "DEFICIT" },
+    { idRequerimiento: 2, lugar: "Santiago Centro", cargo: "Conductor", nombreTurno: "PM", requeridos: 42, programados: 40, deficit: 2, superavit: 0, estado: "DEFICIT" },
+    { idRequerimiento: 3, lugar: "Santiago Centro", cargo: "Conductor", nombreTurno: "PM", requeridos: 32, programados: 30, deficit: 2, superavit: 0, estado: "DEFICIT" },
     { idRequerimiento: 4, lugar: "Oficina Central", cargo: "Administrativo", nombreTurno: "AM", requeridos: 10, programados: 10, deficit: 0, superavit: 0, estado: "CUBIERTO" }
   ]
 };
