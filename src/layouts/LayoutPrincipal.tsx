@@ -17,96 +17,39 @@ import {
   obtenerUsuarioSesion,
 } from "../utils/auth"
 
-/**
- * Layout principal del sistema.
- *
- * Aquí controlamos:
- * - Menú lateral en escritorio
- * - Menú desplegable en móvil
- * - Opciones visibles según el rol del usuario
- *
- * ADMIN:
- * - Panel principal
- * - Subir Excel
- * - Horarios
- * - Trabajadores
- *
- * TRABAJADOR:
- * - Mi horario
- * - Solicitudes
- * - Ayuda
- */
+// 1. Importamos el hook de Demo
+import { useDemo } from "../context/DemoContext"
+
 export default function LayoutPrincipal() {
   const navigate = useNavigate()
   const usuario = obtenerUsuarioSesion()
+  
+  // 2. Extraemos el nombreApp
+  const { nombreApp } = useDemo()
 
   const [menuMovilAbierto, setMenuMovilAbierto] = useState(false)
 
-  /**
-   * Menú exclusivo para administradores.
-   */
   const enlacesAdmin = [
-    {
-      nombre: "Panel principal",
-      ruta: "/panel",
-      icono: LayoutDashboard,
-    },
-    {
-      nombre: "Subir Excel",
-      ruta: "/subir-excel",
-      icono: Upload,
-    },
-    {
-      nombre: "Horarios",
-      ruta: "/horarios",
-      icono: CalendarDays,
-    },
-    {
-      nombre: "Trabajadores",
-      ruta: "/trabajadores",
-      icono: Users,
-    },
+    { nombre: "Panel principal", ruta: "/panel", icono: LayoutDashboard },
+    { nombre: "Subir Excel", ruta: "/subir-excel", icono: Upload },
+    { nombre: "Horarios", ruta: "/horarios", icono: CalendarDays },
+    { nombre: "Trabajadores", ruta: "/trabajadores", icono: Users },
   ]
 
-  /**
-   * Menú exclusivo para trabajadores.
-   */
   const enlacesTrabajador = [
-    {
-      nombre: "Mi horario",
-      ruta: "/mi-horario",
-      icono: CalendarDays,
-    },
-    {
-      nombre: "Solicitudes",
-      ruta: "/solicitudes",
-      icono: ClipboardCheck,
-    },
-    {
-      nombre: "Ayuda",
-      ruta: "/ayuda",
-      icono: HelpCircle,
-    },
+    { nombre: "Mi horario", ruta: "/mi-horario", icono: CalendarDays },
+    { nombre: "Solicitudes", ruta: "/solicitudes", icono: ClipboardCheck },
+    { nombre: "Ayuda", ruta: "/ayuda", icono: HelpCircle },
   ]
 
-  /**
-   * Elegimos qué menú mostrar según el rol.
-   */
   const enlacesMenu =
     usuario?.rol === "TRABAJADOR" ? enlacesTrabajador : enlacesAdmin
 
-  /**
-   * Cierra sesión y vuelve al login.
-   */
   const cerrarSesionUsuario = () => {
     cerrarSesion()
     navigate("/login")
   }
 
-  /**
-   * Renderiza los enlaces del menú.
-   * Se reutiliza tanto en escritorio como en móvil.
-   */
   const renderizarEnlacesMenu = () => {
     return enlacesMenu.map((enlace) => {
       const Icono = enlace.icono
@@ -137,10 +80,10 @@ export default function LayoutPrincipal() {
       <header className="lg:hidden sticky top-0 z-40 bg-zinc-950/95 backdrop-blur border-b border-zinc-800 px-4 py-4">
         <div className="flex items-center justify-between gap-4">
           <div>
+            {/* 3. Nombre Dinámico en Móvil */}
             <h1 className="text-2xl font-bold leading-none">
-              ShiftFlow
+              {nombreApp}
             </h1>
-
             <p className="text-xs text-zinc-400 mt-1">
               Gestión de horarios
             </p>
@@ -176,10 +119,10 @@ export default function LayoutPrincipal() {
       {/* Menú lateral escritorio */}
       <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-[300px] bg-zinc-950 border-r border-zinc-800 p-6 flex-col">
         <div className="mb-10">
+          {/* 4. Nombre Dinámico en Escritorio */}
           <h1 className="text-3xl font-bold leading-none">
-            ShiftFlow
+            {nombreApp}
           </h1>
-
           <p className="text-sm text-zinc-400 mt-2">
             Gestión de horarios
           </p>
@@ -195,11 +138,9 @@ export default function LayoutPrincipal() {
             <p className="text-sm text-zinc-400 mb-1">
               Sesión iniciada
             </p>
-
             <p className="font-semibold truncate">
               {usuario.nombre}
             </p>
-
             <p className="text-xs text-zinc-500 truncate mt-1">
               {usuario.rol}
               {usuario.rut ? ` · ${usuario.rut}` : ""}

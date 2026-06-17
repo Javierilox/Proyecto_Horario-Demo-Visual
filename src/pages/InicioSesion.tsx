@@ -12,12 +12,14 @@ import {
   Info,
 } from "lucide-react"
 
-// Importamos el hook del contexto global de la demo
+// 1. Importamos el hook del contexto global de la demo
 import { useDemo } from "../context/DemoContext"
 
 export default function InicioSesion() {
   const navigate = useNavigate()
-  const { nombreApp } = useDemo() // Extraemos el nombre dinámico de la app
+  
+  // 2. Extraemos el nombre dinámico de la app
+  const { nombreApp } = useDemo() 
 
   const [correo, setCorreo] = useState("")
   const [password, setPassword] = useState("")
@@ -36,7 +38,7 @@ export default function InicioSesion() {
     setCargando(true)
     setError("")
 
-    // SIMULACIÓN DE LOGUEO PARA EL PORTAFOLIO
+    // SIMULACIÓN DE LOGUEO PARA EL PORTAFOLIO (Sin Backend)
     setTimeout(() => {
       let usuarioSimulado
 
@@ -83,7 +85,7 @@ export default function InicioSesion() {
             <ShieldCheck className="text-blue-400" size={32} />
           </div>
 
-          {/* El título principal ahora es dinámico */}
+          {/* 3. El título principal ahora es dinámico */}
           <h1 className="text-4xl font-bold tracking-tight">
             {nombreApp}
           </h1>
@@ -94,11 +96,12 @@ export default function InicioSesion() {
         </div>
 
         <section className="bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl shadow-black/30 p-6 sm:p-8">
+          
           {/* Bloque informativo para el reclutador */}
           <div className="mb-6 bg-blue-500/10 border border-blue-500/30 p-4 rounded-2xl flex gap-3 text-sm text-blue-200">
             <Info className="text-blue-400 shrink-0 mt-0.5" size={20} />
             <p>
-              <strong>Modo Portafolio:</strong> Usa <span className="text-blue-400 font-semibold">admin@demo.com</span> para ver la vista de Administración, o <span className="text-blue-400 font-semibold">trabajador@demo.com</span> para la del Empleado. (Cualquier contraseña funciona).
+              <strong>Modo Portafolio:</strong> Usa <span className="text-blue-400 font-semibold">admin@demo.com</span> para vista de Administración, o <span className="text-blue-400 font-semibold">trabajador@demo.com</span> para Empleado.
             </p>
           </div>
 
@@ -192,7 +195,7 @@ export default function InicioSesion() {
           </form>
         </section>
 
-        {/* El pie de página también se acopla al nombre configurado */}
+        {/* 4. El pie de página también se acopla al nombre */}
         <p className="text-center text-xs text-zinc-600 mt-6">
           {nombreApp} · Control de horarios operativos
         </p>
