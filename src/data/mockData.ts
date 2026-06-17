@@ -1,5 +1,3 @@
-// frontend/src/data/mockData.ts
-
 export const mockUsuarioAdmin = {
   id: 1,
   correo: "admin@demo.com",
@@ -15,39 +13,11 @@ export const mockUsuarioTrabajador = {
 }
 
 export const mockTrabajadores = [
-  { id: 1, rut: "12.345.678-9", nombre: "Juan Pérez", correo: "jperez@demo.com", cargo: "Conductor", lugar: "Terminal Norte", estado: "Activo" },
+  { id: 1, rut: "12.345.678-9", nombre: "Juan Pérez", correo: "jperez@demo.com", cargo: "Conductor", lugar: "Terminal Condell", estado: "Activo" },
   { id: 2, rut: "98.765.432-1", nombre: "María González", correo: "mgonzalez@demo.com", cargo: "Administrativo", lugar: "Oficina Central", estado: "Activo" },
-  { id: 3, rut: "15.555.555-5", nombre: "Carlos Soto", correo: "csoto@demo.com", cargo: "Mecánico", lugar: "Taller Sur", estado: "Licencia" },
-  { id: 4, rut: "19.999.999-9", nombre: "Ana Silva", correo: "asilva@demo.com", cargo: "Conductor", lugar: "Terminal Norte", estado: "Activo" },
+  { id: 3, rut: "15.555.555-5", nombre: "Carlos Soto", correo: "csoto@demo.com", cargo: "Mecánico", lugar: "Terminal Retiro", estado: "Licencia" },
+  { id: 4, rut: "19.999.999-9", nombre: "Ana Silva", correo: "asilva@demo.com", cargo: "Conductor", lugar: "Terminal Condell", estado: "Activo" },
 ]
-
-export const mockMetricas = {
-  resumen: {
-    dotacionRequerida: 120,
-    dotacionProgramada: 115,
-    deficitTotal: 5,
-    porcentajeCobertura: 95.8
-  },
-  graficoCobertura: [
-    { dia: "01 Jun", requerido: 120, programado: 120 },
-    { dia: "02 Jun", requerido: 120, programado: 118 },
-    { dia: "03 Jun", requerido: 120, programado: 115 },
-    { dia: "04 Jun", requerido: 120, programado: 120 },
-    { dia: "05 Jun", requerido: 120, programado: 119 },
-    { dia: "06 Jun", requerido: 100, programado: 95 },
-    { dia: "07 Jun", requerido: 100, programado: 98 },
-  ],
-  deficitPorTurno: [
-    { turno: "Mañana (M)", cantidad: 2 },
-    { turno: "Tarde (T)", cantidad: 1 },
-    { turno: "Noche (N)", cantidad: 2 },
-  ],
-  deficitPorLugar: [
-    { lugar: "Terminal Norte", cantidad: 3 },
-    { lugar: "Oficina Central", cantidad: 0 },
-    { lugar: "Taller Sur", cantidad: 2 },
-  ]
-}
 
 export const mockSolicitudes = [
   {
@@ -82,32 +52,6 @@ export const mockSolicitudes = [
   }
 ]
 
-// Generador de un mes de turnos aleatorios para la vista de "Mi Horario"
-const generarTurnosMes = () => {
-  const turnos = ["M", "T", "N", "L"]
-  const dias = []
-  for (let i = 1; i <= 30; i++) {
-    dias.push({
-      dia: i,
-      codigo: turnos[Math.floor(Math.random() * turnos.length)]
-    })
-  }
-  return dias
-}
-
-export const mockMiHorario = {
-  mes: "Junio",
-  anio: 2026,
-  trabajador: {
-    nombre: "Javier O.",
-    rut: "22.222.222-2",
-    cargo: "Supervisor de Turnos"
-  },
-  turnos: generarTurnosMes()
-}
-
-// Agrega esto al final de tu frontend/src/data/mockData.ts
-
 export const mockMetricasDashboard = {
   filtros: {
     fechasDisponibles: ["17-jun", "18-jun", "19-jun", "20-jun"],
@@ -128,20 +72,8 @@ export const mockMetricasDashboard = {
     hoja: "Turnos_Junio",
     creadoEn: "2026-06-16T18:30:00"
   },
-  resumen: {
-    totalPersonas: 245,
-    trabajando: 198,
-    libre: 35,
-    ausente: 12,
-    sinAsignacion: 0
-  },
-  resumenDotacion: {
-    requeridos: 205,
-    programados: 198,
-    deficit: 7,
-    superavit: 0,
-    combinacionesConDeficit: 3
-  },
+  resumen: { totalPersonas: 245, trabajando: 198, libre: 35, ausente: 12, sinAsignacion: 0 },
+  resumenDotacion: { requeridos: 205, programados: 198, deficit: 7, superavit: 0, combinacionesConDeficit: 3 },
   graficoEstadoDia: [
     { categoria: "Trabajando", cantidad: 198 },
     { categoria: "Libre", cantidad: 35 },
@@ -186,8 +118,6 @@ export const mockMetricasDashboard = {
     { idRequerimiento: 4, lugar: "Oficina Central", cargo: "Administrativo", nombreTurno: "AM", requeridos: 10, programados: 10, deficit: 0, superavit: 0, estado: "CUBIERTO" }
   ]
 };
-
-// Reemplaza el 'mockMiHorario' anterior por este bloque en frontend/src/data/mockData.ts
 
 export const mockMiHorario = {
   trabajador: {
