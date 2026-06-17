@@ -121,14 +121,14 @@ export const mockMetricasDashboard = {
 
 export const mockMiHorario = {
   trabajador: {
-    nombre: "Javier Orellana",
+    nombre: "Trabajador Demo",
     rut: "22.222.222-2",
-    cargo: "Operador de Flota",
-    lugar: "Terminal Condell",
-    partida: "P1"
+    cargo: "Operador",
+    lugar: "Lugar de trabajado",
+    partida: "Planta 1"
   },
   carga: {
-    archivoOriginal: "Matriz_Turnos_Junio_2026.xlsx",
+    archivoOriginal: "ejemplo_de_excel.xlsx",
     hoja: "Turnos_Junio",
     creadoEn: "2026-06-16T18:30:00"
   },
