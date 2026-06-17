@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
 import { ShieldCheck, Bus, CalendarDays, Briefcase } from "lucide-react"
 
+// 1. IMPORTAMOS EL NÚCLEO SECRETO (Marca de agua / Anti-Tamper)
+import { initCore } from "../utils/core"
+
 type ThemeColor = "blue" | "emerald" | "violet" | "rose" | "amber"
 type ThemeBackground = "zinc" | "slate" | "neutral"
 type ThemeFont = "modern" | "elegant" | "tech"
@@ -31,9 +34,9 @@ const paletas = {
 }
 
 const fondos = {
-  zinc: { 950: "#09090b", 900: "#18181b", 800: "#27272a", 700: "#3f3f46" }, // Original oscuro
-  slate: { 950: "#020617", 900: "#0f172a", 800: "#1e293b", 700: "#334155" }, // Azulado oscuro
-  neutral: { 950: "#0a0a0a", 900: "#171717", 800: "#262626", 700: "#404040" } // Negro absoluto
+  zinc: { 950: "#09090b", 900: "#18181b", 800: "#27272a", 700: "#3f3f46" }, 
+  slate: { 950: "#020617", 900: "#0f172a", 800: "#1e293b", 700: "#334155" }, 
+  neutral: { 950: "#0a0a0a", 900: "#171717", 800: "#262626", 700: "#404040" } 
 }
 
 const fuentes = {
@@ -58,6 +61,12 @@ export function DemoProvider({ children }: { children: React.ReactNode }) {
   const [iconoApp, setIconoApp] = useState<ThemeIcon>(() => (localStorage.getItem("demo_iconoApp") as ThemeIcon) || "shield")
 
   useEffect(() => {
+    // --- AQUÍ ACTIVAMOS LA MARCA DE AGUA (NÚCLEO SECRETO) ---
+    // Si alguien borra core.ts del repositorio, esta línea arrojará un error 
+    // y bloqueará completamente el renderizado de la App.
+    initCore()
+    // --------------------------------------------------------
+
     localStorage.setItem("demo_nombreApp", nombreApp)
     localStorage.setItem("demo_colorTema", colorTema)
     localStorage.setItem("demo_fondoApp", fondoApp)
