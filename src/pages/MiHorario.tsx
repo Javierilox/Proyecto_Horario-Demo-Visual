@@ -17,8 +17,6 @@ import {
   User,
 } from "lucide-react"
 
-// Importamos el tipo desde el servicio original para mantener TypeScript contento,
-// pero usamos nuestros datos falsos para renderizar.
 import type { RespuestaMiHorario } from "../services/miHorarioServicio"
 import { mockMiHorario } from "../data/mockData"
 
@@ -62,15 +60,11 @@ export default function MiHorario() {
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState("")
 
-  /**
-   * Carga simulada del horario para el portafolio.
-   */
   const cargarMiHorario = () => {
     setCargando(true)
     setError("")
 
     setTimeout(() => {
-      // Inyectamos los datos del mock
       setDatosHorario(mockMiHorario as RespuestaMiHorario)
       setCargando(false)
     }, 800)
@@ -81,7 +75,7 @@ export default function MiHorario() {
   }, [])
 
   const resumenTurnos = useMemo(() => {
-    const resumen = { am: 0, pm: 0, noche: 0, libre: 0, licencia: 0, vacaciones: 0, otros: 0 }
+    const resumen = { am: 0, pm: 0, noche: 0, libre: 0, licencia: 0, vacations: 0, otros: 0 }
     datosHorario?.horarioMensual.forEach((dia) => {
       const turno = dia.turno.trim().toUpperCase()
       if (turno === "M") resumen.am += 1
@@ -89,7 +83,7 @@ export default function MiHorario() {
       else if (turno === "N") resumen.noche += 1
       else if (turno === "L") resumen.libre += 1
       else if (turno === "LM") resumen.licencia += 1
-      else if (turno === "VAC") resumen.vacaciones += 1
+      else if (turno === "VAC") resumen.vacations += 1
       else resumen.otros += 1
     })
     return resumen
@@ -119,7 +113,7 @@ export default function MiHorario() {
       ["Noche", resumenTurnos.noche],
       ["Libre", resumenTurnos.libre],
       ["Licencia médica", resumenTurnos.licencia],
-      ["Vacaciones", resumenTurnos.vacaciones],
+      ["Vacaciones", resumenTurnos.vacations],
       ["Otros", resumenTurnos.otros],
     ]
 
@@ -171,7 +165,7 @@ export default function MiHorario() {
     autoTable(documento, {
       startY: 58,
       head: [["AM", "PM", "Noche", "Libre", "Licencia", "Vacaciones", "Otros"]],
-      body: [[resumenTurnos.am, resumenTurnos.pm, resumenTurnos.noche, resumenTurnos.libre, resumenTurnos.licencia, resumenTurnos.vacaciones, resumenTurnos.otros]],
+      body: [[resumenTurnos.am, resumenTurnos.pm, resumenTurnos.noche, resumenTurnos.libre, resumenTurnos.licencia, resumenTurnos.vacations, resumenTurnos.otros]],
       styles: { fontSize: 9, halign: "center", cellPadding: 3 },
       headStyles: { fillColor: [39, 39, 42], textColor: 255, fontStyle: "bold" },
     })
@@ -195,7 +189,6 @@ export default function MiHorario() {
 
   return (
     <div>
-      {/* Encabezado */}
       <div className="flex flex-col gap-5 mb-8 xl:flex-row xl:items-center xl:justify-between">
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold mb-2">Mi horario</h1>
@@ -250,7 +243,6 @@ export default function MiHorario() {
 
       {datosHorario && (
         <div className={`transition-opacity duration-500 ${cargando ? "opacity-40" : "opacity-100"}`}>
-          {/* Datos del trabajador */}
           <section className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-5 mb-6">
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 lg:col-span-2">
               <div className="flex items-center gap-3 text-zinc-400 mb-2">
@@ -278,7 +270,6 @@ export default function MiHorario() {
             </div>
           </section>
 
-          {/* Información de la carga activa */}
           <section className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-6">
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
               <div className="flex items-center gap-3 text-zinc-400 mb-2">
@@ -307,7 +298,6 @@ export default function MiHorario() {
             </div>
           </section>
 
-          {/* Resumen de turnos */}
           <section className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 mb-6">
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
               <p className="text-sm text-zinc-400 mb-1">AM</p>
@@ -331,11 +321,10 @@ export default function MiHorario() {
             </div>
             <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
               <p className="text-sm text-zinc-400 mb-1">Vacaciones</p>
-              <p className="text-3xl font-bold text-cyan-300">{resumenTurnos.vacaciones}</p>
+              <p className="text-3xl font-bold text-cyan-300">{resumenTurnos.vacations}</p>
             </div>
           </section>
 
-          {/* Tabla mensual */}
           <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6">
             <div className="flex items-center gap-3 mb-5">
               <div className="bg-blue-600/10 text-blue-400 p-3 rounded-xl">
