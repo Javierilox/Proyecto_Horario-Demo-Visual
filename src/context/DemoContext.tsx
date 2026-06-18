@@ -54,7 +54,7 @@ const faviconsEmoji = {
 }
 
 export function DemoProvider({ children }: { children: React.ReactNode }) {
-  const [nombreApp, setNombreApp] = useState(() => localStorage.getItem("demo_nombreApp") || "ShiftFlow")
+  const [nombreApp, setNombreApp] = useState(() => localStorage.getItem("demo_nombreApp") || "Javierilox App")
   const [colorTema, setColorTema] = useState<ThemeColor>(() => (localStorage.getItem("demo_colorTema") as ThemeColor) || "blue")
   const [fondoApp, setFondoApp] = useState<ThemeBackground>(() => (localStorage.getItem("demo_fondoApp") as ThemeBackground) || "zinc")
   const [fuenteApp, setFuenteApp] = useState<ThemeFont>(() => (localStorage.getItem("demo_fuenteApp") as ThemeFont) || "modern")
