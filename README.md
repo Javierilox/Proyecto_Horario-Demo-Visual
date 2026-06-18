@@ -51,7 +51,8 @@ Pantalla de autenticación diseñada con layouts adaptativos. Cuenta con un bypa
 ### 📊 2. Dashboard de Control Central (Vista Administrador)
 Panel analítico principal que transforma arrays de datos planos en información accionable a través de componentes gráficos interactivos de alto volumen.
 
-<img width="1857" height="651" alt="image" src="https://github.com/user-attachments/assets/9d25db11-7913-45a5-b253-6405e2be8a0b" />
+<img width="1643" height="767" alt="image" src="https://github.com/user-attachments/assets/eb26fb02-e6ca-4213-af5a-d2b1e154b7fe" />
+
 <img width="1676" height="853" alt="image" src="https://github.com/user-attachments/assets/d774d7a1-8513-4118-8c39-b364e0e0e4da" />
 
 ---
