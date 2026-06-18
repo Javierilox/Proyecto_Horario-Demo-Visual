@@ -72,26 +72,34 @@ Interfaz simplificada donde el trabajador puede consultar de manera exclusiva su
 ---
 
 ## 🎨 Personalización Dinámica (Control Context API)
-La plataforma integra un **Configurador de Entorno en tiempo real** (accesible mediante el widget flotante inferior) que demuestra el control avanzado de estados globales y reactividad en la UI:
+La plataforma de la demostracion integra un **Configurador de Entorno en tiempo real** (accesible mediante el widget flotante inferior) que demuestra el control avanzado de estados globales y reactividad en la UI:
 
 * 📝 **Inyección de Identidad:** Permite renombrar toda la suite corporativa de forma dinámica.
 * 📦 **Encapsulamiento de Logos:** Reemplazo de componentes SVG (`Lucide`) en caliente a lo largo de toda la estructura de navegación.
 * 🌈 **Tematización mediante Variables CSS:** Modificación instantánea de paletas cromáticas completas (Tailwind Override), tipografías del sistema y variantes oscuras avanzadas (Slate, Zinc, Negro Absoluto OLED) con persistencia en `LocalStorage`.
 
----
-
-## 🛡️ Protección de Autoría (Anti-Tamper DOM)
-Para garantizar la integridad y auditoría del portafolio, el núcleo inyecta un módulo de seguridad invisible:
-* 🧬 **Ofuscación Crítica:** Los metadatos de autoría se procesan cifrados en memoria para evitar rastreos directos en texto plano.
-* 🔄 **MutationObserver del DOM:** Si un agente externo intenta remover o alterar la firma visual mediante herramientas de desarrollo (`F12`), el sistema detecta la mutación del árbol HTML de manera reactiva y reconstruye el nodo de protección en milisegundos.
-
----
+<img width="1858" height="921" alt="image" src="https://github.com/user-attachments/assets/9b6bc21d-0b0b-4abe-a9d7-4233d06bb7c9" />
 
 ## ✨ Funcionalidades de la Demo
 * **[SI] Búsqueda indexada:** Filtro multifactorial reactivo en tablas por RUT, Nombre o ID.
 * **[SI] Exportación Binaria:** Generación en el cliente de hojas de cálculo **Excel (.xlsx)** y documentos **PDF** estructurados usando procesamiento asíncrono.
 * **[NO] Mutación en Servidor:** Las acciones simulan respuestas exitosas del backend (0ms de latencia), pero no alteran ficheros raíz.
+---
+## 🌟 Capacidad de la Versión Completa (Full-Stack)
 
+Aunque este repositorio aloja exclusivamente la versión de demostración visual (para acceso público rápido y seguro), el ecosistema original de **Gestor de Horario** es una plataforma **Full-Stack** robusta, conectada a bases de datos relacionales y diseñada para entornos logísticos de alta demanda. 
+
+Las capacidades técnicas y operativas del sistema completo incluyen:
+
+* **🔐 Autenticación y Seguridad (JWT):** Sistema de login seguro con encriptación de credenciales (Bcrypt). Cuenta con Control de Acceso Basado en Roles (RBAC): la vista y permisos se auto-ajustan garantizando que un conductor solo vea su propio itinerario, mientras que la administración tiene control total.
+  
+* **📑 Motor de Carga y Parseo Masivo de Excel:** Backend optimizado para recibir, validar y procesar "sábanas" operativas mensuales completas en milisegundos. El algoritmo lee formatos complejos, extrae las matrices de turnos y sincroniza la base de datos de manera automatizada.
+  
+* **⚙️ Auto-Ajuste de Tablas y Algoritmo de Cobertura:** El motor lógico cruza dinámicamente la matriz de trabajadores programados contra la hoja logística de "Necesidad". Las tablas se auto-ajustan en tiempo real para calcular y evidenciar déficits o superávits matemáticos por recinto, turno (AM/PM/Noche) y perfil técnico.
+  
+* **👥 Control Avanzado de Usuarios:** Módulo de administración CRUD completo. Permite gestionar dotaciones, asignar recintos operativos (Ej: Terminal Condell, Retiro, Oficina Central), y actualizar estados de disponibilidad (Activo, Licencia Médica, Vacaciones).
+  
+* **🗄️ Persistencia Relacional:** Arquitectura de base de datos sólida, estructurada para garantizar la trazabilidad e integridad referencial entre usuarios, recintos, matrices de turnos históricas y métricas de ausentismo.
 ---
 
 ## 🛠️ Stack Tecnológico
@@ -102,7 +110,7 @@ Para garantizar la integridad y auditoría del portafolio, el núcleo inyecta un
 
 ---
 
-## ⚙️ Instalación y Build Local
+## ⚙️ Instalación y Build Local de la version Demo
 
 1. Instalar dependencias mediante el gestor de paquetes optimizado:
    ```bash
