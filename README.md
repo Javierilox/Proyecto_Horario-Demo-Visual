@@ -50,17 +50,22 @@ Pantalla de autenticación diseñada con layouts adaptativos. Cuenta con un bypa
 
 ### 📊 2. Dashboard de Control Central (Vista Administrador)
 Panel analítico principal que transforma arrays de datos planos en información accionable a través de componentes gráficos interactivos de alto volumen.
-
+---
+Imagen del panel operativo
 <img width="1643" height="767" alt="image" src="https://github.com/user-attachments/assets/eb26fb02-e6ca-4213-af5a-d2b1e154b7fe" />
 
+--------
+Imagen 2 del panel operativo 
 <img width="1676" height="853" alt="image" src="https://github.com/user-attachments/assets/d774d7a1-8513-4118-8c39-b364e0e0e4da" />
 
 ---
 
-### 🗓️ 3. Sábana de Horarios Operativos
+### 🗓️ 3. Horarios Operativos
 Matriz completa de distribución mensual día por día. Muestra de forma colorizada y categorizada los estados de cada colaborador (Turnos AM, PM, Nocturnos, Libres, Licencias Médicas o Vacaciones), ademas cuenta con opciones de descarga de horario en PDF y Excel.
-
+Imagen 1
 <img width="1524" height="780" alt="image" src="https://github.com/user-attachments/assets/9f3a12ae-ecf7-48b1-85b9-8a38b1a4e71c" />
+------
+Imagen 2
 <img width="1563" height="806" alt="image" src="https://github.com/user-attachments/assets/48841a5d-40ce-4a96-b64e-fb0f001823e2" />
 
 ---
