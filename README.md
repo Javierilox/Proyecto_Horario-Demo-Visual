@@ -43,20 +43,31 @@ El proyecto se encuentra compilado de forma optimizada y desplegado en servidore
 ### 🔐 1. Control de Acceso Unificado
 Pantalla de autenticación diseñada con layouts adaptativos. Cuenta con un bypass inteligente que permite evaluar los flujos completos de los distintos tipos de usuarios sin requerir configuración de bases de datos externas.
 
+<img width="781" height="791" alt="image" src="https://github.com/user-attachments/assets/2972554e-3eff-444a-8b5d-141af20e0230" />
+
+
 ---
 
 ### 📊 2. Dashboard de Control Central (Vista Administrador)
 Panel analítico principal que transforma arrays de datos planos en información accionable a través de componentes gráficos interactivos de alto volumen.
 
+<img width="1857" height="651" alt="image" src="https://github.com/user-attachments/assets/9d25db11-7913-45a5-b253-6405e2be8a0b" />
+<img width="1676" height="853" alt="image" src="https://github.com/user-attachments/assets/d774d7a1-8513-4118-8c39-b364e0e0e4da" />
+
 ---
 
 ### 🗓️ 3. Sábana de Horarios Operativos
-Matriz completa de distribución mensual día por día. Muestra de forma colorizada y categorizada los estados de cada colaborador (Turnos AM, PM, Nocturnos, Libres, Licencias Médicas o Vacaciones).
+Matriz completa de distribución mensual día por día. Muestra de forma colorizada y categorizada los estados de cada colaborador (Turnos AM, PM, Nocturnos, Libres, Licencias Médicas o Vacaciones), ademas cuenta con opciones de descarga de horario en PDF y Excel.
+
+<img width="1524" height="780" alt="image" src="https://github.com/user-attachments/assets/9f3a12ae-ecf7-48b1-85b9-8a38b1a4e71c" />
+<img width="1563" height="806" alt="image" src="https://github.com/user-attachments/assets/48841a5d-40ce-4a96-b64e-fb0f001823e2" />
 
 ---
 
 ### 👤 4. Panel Autónomo del Colaborador (Vista Trabajador)
 Interfaz simplificada donde el trabajador puede consultar de manera exclusiva sus turnos, ver resúmenes estadísticos de sus jornadas y descargar sus reportes generados en caliente de forma nativa.
+
+<img width="1574" height="933" alt="image" src="https://github.com/user-attachments/assets/9eafc976-439a-4c8c-a746-bd16bc924353" />
 
 ---
 
