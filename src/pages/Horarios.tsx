@@ -32,7 +32,7 @@ const mockHorariosData = {
   },
   horarios: [
     {
-      id: 1, rut: "12.345.678-9", nombre: "Juan Pérez", cargo: "Conductor", lugar: "Terminal Condell",
+      id: 1, rut: "12.345.678-9", nombre: "Juan Pérez", cargo: "Conductor", lugar: "Condell",
       horarioMensual: fechasGenerales.map((f, i) => ({ ...f, turno: ["M", "M", "M", "M", "L", "L", "T", "T", "T", "T", "N", "L", "L", "VAC", "VAC"][i] }))
     },
     {
@@ -40,15 +40,15 @@ const mockHorariosData = {
       horarioMensual: fechasGenerales.map((f, i) => ({ ...f, turno: ["M", "M", "M", "M", "M", "L", "L", "M", "M", "M", "M", "M", "L", "L", "M"][i] }))
     },
     {
-      id: 3, rut: "15.555.555-5", nombre: "Carlos Soto", cargo: "Mecánico", lugar: "Terminal Retiro",
+      id: 3, rut: "15.555.555-5", nombre: "Carlos Soto", cargo: "Mecánico", lugar: "Maipu",
       horarioMensual: fechasGenerales.map((f, i) => ({ ...f, turno: ["T", "T", "T", "T", "T", "L", "L", "T", "T", "T", "LM", "LM", "LM", "LM", "LM"][i] }))
     },
     {
-      id: 4, rut: "19.999.999-9", nombre: "Ana Silva", cargo: "Conductor", lugar: "Terminal Condell",
+      id: 4, rut: "19.999.999-9", nombre: "Ana Silva", cargo: "Conductor", lugar: "Condell",
       horarioMensual: fechasGenerales.map((f, i) => ({ ...f, turno: ["N", "N", "N", "N", "L", "L", "M", "M", "M", "M", "L", "L", "T", "T", "T"][i] }))
     },
     {
-      id: 5, rut: "22.222.222-2", nombre: "Javier Orellana", cargo: "Operador de Flota", lugar: "Terminal Condell",
+      id: 5, rut: "22.222.222-2", nombre: "Javier Orellana", cargo: "Operador de Flota", lugar: " Condell",
       horarioMensual: fechasGenerales.map((f, i) => ({ ...f, turno: ["M", "M", "M", "M", "L", "L", "T", "T", "T", "T", "N", "L", "L", "VAC", "VAC"][i] }))
     }
   ] as RegistroHorario[]
