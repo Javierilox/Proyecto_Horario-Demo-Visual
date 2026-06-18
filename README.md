@@ -27,7 +27,7 @@
 ---
 
 ## 🚀 Sobre el Proyecto
-**ShiftFlow** resuelve de forma visual y analítica el conflicto logístico de la asignación de jornadas laborales masivas. El sistema contrasta las planificaciones mensuales cargadas mediante matrices complejas frente a las necesidades operacionales reales del día a día, arrojando alertas tempranas de déficit de personal por cargos, turnos específicos o locaciones físicas.
+**Javierilox** resuelve de forma visual y analítica el conflicto logístico de la asignación de jornadas laborales masivas. El sistema contrasta las planificaciones mensuales cargadas mediante matrices complejas frente a las necesidades operacionales reales del día a día, arrojando alertas tempranas de déficit de personal por cargos, turnos específicos o locaciones físicas.
 
 ---
 
