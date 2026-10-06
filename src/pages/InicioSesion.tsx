@@ -69,7 +69,10 @@ export default function InicioSesion() {
           <div className="mb-6 bg-blue-500/10 border border-blue-500/30 p-4 rounded-2xl flex gap-3 text-sm text-blue-200">
             <Info className="text-blue-400 shrink-0 mt-0.5" size={20} />
             <p>
-              <strong>Modo Portafolio:</strong> Usa <span className="text-blue-400 font-semibold">admin@demo.com</span> para vista de Administración, o <span className="text-blue-400 font-semibold">trabajador@demo.com</span> para Empleado.
+                <strong>Modo Portafolio:</strong> Usa <span className="text-blue-400 font-semibold">admin@demo.com</span> para vista de Administración, o <span className="text-blue-400 font-semibold">trabajador@demo.com</span> para Empleado.
+                <span className="block mt-2 text-blue-300/90">
+                  🔑 <strong>Contraseña:</strong> No requiere validación. Puedes ingresar cualquier texto (ej: 123456).
+                </span>
             </p>
           </div>
 
